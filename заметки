@@ -1,0 +1,14 @@
+pip3 install torch torchvision torchaudio
+
+pip install dll-diagnostics
+dlldiag deps .venv\lib\site-packages\torch\lib\fbgemm.dll
+
+// Ошибка следующая
+libomp140.x86_64.dll                     Error 126: Не найден указанный модуль. скачала эту либу и положила в system32
+
+python 3.11
+совместить его с opencl:
+
+
+
+
