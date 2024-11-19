@@ -20,10 +20,9 @@ TRANSFORMS = A.Compose([
     A.Normalize(),
 ])
 
+
 class ModelType(Enum):
     RESNET_RBF = 1
-    RESNET_LINEAR = 2
-    EFFICIENT = 3
-    TEST = 4
-    # ALEXNET_RBF = 3
-    # ALEXNET_LINEAR = 4
+    RESNET = 2
+    IMAGENET_RBF = 3
+    IMAGENET = 4

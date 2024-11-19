@@ -18,6 +18,7 @@ import numpy as np
 from tqdm import tqdm
 from enum import Enum
 
+# CLASS CONSTS
 # Device configuration
 DEVICE = 'cuda' if torch.cuda.is_available() else 'cpu'
 
@@ -38,6 +39,7 @@ TRANSFORMS = A.Compose([
     A.Normalize(),
 ])
 
+# CLASS DATASET
 class ImageDataset:
 
     def __init__(self, path, mode="train", transform=None):
@@ -81,6 +83,7 @@ class ImageDataset:
         plt.title(class_name)
         plt.show()
 
+# CLASS RBF LAYSER
 import torch
 import torch.nn as nn
 
@@ -332,7 +335,7 @@ def train_model(model, epochs, train_dataloader, valid_dataloader, learning_rate
               f"accuracy : {np.round(valid_accuracy, 3)}")
     return train_accuracy_list, valid_accuracy_list, train_loss_list, valid_loss_list
 
-def train_test(learning_rate, epochs):
+def train_imagenet_with_RBF(learning_rate, epochs):
     print(TRAIN_PATH)
     print("RBF")
     train_dataset = ImageDataset(TRAIN_PATH, transform=TRANSFORMS)
@@ -383,5 +386,5 @@ if __name__ == "__main__":
     epochs = 100
     learning_rate = 1e-4  # Corrected learning rate notation
 
-    train_test(learning_rate, epochs)
+    train_imagenet_with_RBF(learning_rate, epochs)
     train_imagenet_with_base_classifier(learning_rate, epochs)

@@ -191,11 +191,7 @@ class RBFLayer(nn.Module):
         c = self.kernels_centers.expand(
             batch_size, self.num_kernels, self.in_features_dim
         )
-
-        # todo resnet34
-        # diff = input.view(batch_size, 1, self.in_features_dim) - c
-
-        # todo resnext50_32x4d
+        
         diff = input.view(batch_size, 1, self.in_features_dim) - c
 
         # Apply norm function; c has size B x num_kernels
